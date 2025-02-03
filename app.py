@@ -11,7 +11,8 @@ ai_endpoint = os.getenv('AI_SERVICE_ENDPOINT')
 ai_key = os.getenv('AI_SERVICE_KEY')
 # upload_folder = os.getenv('UPLOAD_FOLDER')
 upload_folder = os.path.join('static', 'uploads')
-
+ai_project_name = os.getenv('QA_PROJECT_NAME')
+ai_deployment_name = os.getenv('QA_DEPLOYMENT_NAME')
 
 # Ensure upload directory exists
 os.makedirs(upload_folder, exist_ok=True)
