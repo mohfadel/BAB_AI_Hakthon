@@ -22,12 +22,13 @@ def upload_file():
             file_path = os.path.join(upload_folder, file.filename)
             file.save(file_path)
             ocr_result = get_text_read(ai_endpoint, ai_key, file_path)
-            ocr_result_text = ""
+            ocr_result_text = "<ul>"
             if ocr_result.read is not None:
                 for line in ocr_result.read.blocks[0].lines:
                     # Return the text detected in the image
-                    ocr_result_text += line.text
-                return f"OCR Text extracted from image: {file.filename} :> <br> {ocr_result_text}"
+                    ocr_result_text += "<li>" + line.text + "</li>"
+                ocr_result_text += "</ul>"
+                return render_template("ocr-result.html", filename=file.filename, ocr_result_text=ocr_result_text)
             else:
                 return f"OCR return None Text from image file name : {file.filename}"
     return render_template("index.html")
