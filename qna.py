@@ -13,6 +13,7 @@ def get_answer_for_question(ai_endpoint, ai_key, ai_project_name, ai_deployment_
         response = ai_client.get_answers(question=user_question,
                                         project_name=ai_project_name,
                                         deployment_name=ai_deployment_name)
+        
         for candidate in response.answers:
             print(candidate.answer)
             print("Confidence: {}".format(candidate.confidence))

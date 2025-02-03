@@ -25,17 +25,18 @@ def get_text_read(ai_endpoint, ai_key, image_path):
             image_data=image_data,
             visual_features=[VisualFeatures.READ]
         )
-
-        # Display the image and overlay it with the extracted text
-        if result.read is not None:
-            print("\nText:")
-
-        for line in result.read.blocks[0].lines:
-            # Return the text detected in the image
-            print(f"  {line.text}")
         
         return result
                 
     except Exception as ex:
         print(ex)
 
+
+def get_text_from_result(ocr_result):
+    ocr_result_text = ""
+    if ocr_result.read is not None:
+        for line in ocr_result.read.blocks[0].lines:
+            # Return the text detected in the image
+            ocr_result_text += line.text
+    return ocr_result_text;
+     
