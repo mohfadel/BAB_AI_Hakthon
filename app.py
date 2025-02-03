@@ -28,7 +28,7 @@ def upload_file():
                     # Return the text detected in the image
                     ocr_result_text += "<li>" + line.text + "</li>"
                 ocr_result_text += "</ul>"
-                return render_template("ocr-result.html", filename=file.filename, ocr_result_text=ocr_result_text)
+                return render_template("result.html", filename=file.filename, result=ocr_result_text)
             else:
                 return f"OCR return None Text from image file name : {file.filename}"
     return render_template("index.html")
