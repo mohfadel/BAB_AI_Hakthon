@@ -1,3 +1,4 @@
 flask
 python-dotenv
 azure-ai-vision-imageanalysis==1.0.0b3
+azure-ai-language-questionanswering
