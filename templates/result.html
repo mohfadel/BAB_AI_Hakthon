@@ -9,8 +9,16 @@
 </head>
 
 <body>
-    <h1>OCR Text extracted from image: {{ filename }} :</h1>
-    {{ result|safe }}
+    <div>
+        <h1>OCR Text extracted from image: {{ filename }} :</h1>
+        <div>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        </div>
+        <div>
+            {{ result|safe }}
+        </div>
+    </div>
+    <!-- <a href="{{ url_for('index') }}">Upload another image</a> -->
 </body>
 
 </html>

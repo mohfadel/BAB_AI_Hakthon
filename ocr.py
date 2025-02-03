@@ -39,5 +39,3 @@ def get_text_read(ai_endpoint, ai_key, image_path):
     except Exception as ex:
         print(ex)
 
-if __name__ == "__main__":
-    main()
