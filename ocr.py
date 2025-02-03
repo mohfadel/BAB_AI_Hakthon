@@ -37,6 +37,6 @@ def get_text_from_result(ocr_result):
     if ocr_result.read is not None:
         for line in ocr_result.read.blocks[0].lines:
             # Return the text detected in the image
-            ocr_result_text += line.text
+            ocr_result_text += line.text + " "
     return ocr_result_text;
      
