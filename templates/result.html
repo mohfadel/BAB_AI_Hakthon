@@ -4,19 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OCR Result</title>
+    <title>Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
-    <div>
-        <h1>OCR Text extracted from image: {{ filename }} :</h1>
-        <div>
-            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+    <div class="result_container">
+
+        <div class="button-container">
+            <button class="button-link" onclick="window.location.href='{{ url_for('upload_file') }}'">Upload another image</button>
         </div>
+
+        <h1>Uploaded image:</h1>
         <div>
+            <img class="tkt_img"  src="{{ url_for('static', filename='uploads/' + filename) }}"
+                alt="Uploaded Image">
+        </div>
+
+        <div>
+            <h1>Extracted Info from uploaded image:</h1>
             {{ result|safe }}
         </div>
+
+        <!-- QNA result -->
+         <div>
+            <h1>Recommended solution:</h1>
+            <div style="direction: rtl;">
+                {{ qna_result|safe }}
+            </div>
+         </div>
+
+         <!-- <div class="button-container">
+            <a href="{{ url_for('upload_file') }}" class="button-link">Upload another image</a>
+        </div> -->
     </div>
 </body>
 

@@ -36,6 +36,8 @@ def upload_file():
             # call QNA 
             qa_result = qna.get_answer_for_question(lang_ai_endpoint, lang_ai_key, lang_ai_project_name, lang_ai_deployment_name, ocr_result_text)
 
+            print("qa_result: {}".format(qa_result))
+
             return render_result(file.filename, ocr_result, qa_result)
     return render_template("index.html")
 
@@ -46,7 +48,7 @@ def render_result(fileName, ocr_result, qna_result):
             # Return the text detected in the image
             ocr_result_text += "<li>" + line.text + "</li>"
         ocr_result_text += "</ul>"
-        return render_template("result.html", filename=fileName, result=ocr_result_text)
+        return render_template("result.html", filename=fileName, result=ocr_result_text, qna_result=qna_result)
     else:
         return f"OCR return None Text from image file name : {fileName}"
 

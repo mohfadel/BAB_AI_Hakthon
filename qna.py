@@ -19,5 +19,7 @@ def get_answer_for_question(ai_endpoint, ai_key, ai_project_name, ai_deployment_
             print("Confidence: {}".format(candidate.confidence))
             print("Source: {}".format(candidate.source))
 
+        return response.answers[0].answer
+
     except Exception as ex:
         print(ex)

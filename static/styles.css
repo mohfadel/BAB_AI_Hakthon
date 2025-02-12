@@ -1,11 +1,22 @@
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+}
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+}
+
+.result_container {
+    margin: 0;
+    padding: 0 10%;
+    height: 100vh;
 }
 
 h2 {
@@ -34,4 +45,17 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.tkt_img {
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    justify-content: space-between;
 }
